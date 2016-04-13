@@ -6,7 +6,23 @@ using System.Threading.Tasks;
 
 namespace BudgetManager.Business
 {
-    public class UnitOfWork
+    public interface IUnitOfWork
     {
+        int SaveChanges();
+    }
+
+    public class UnitOfWork : IUnitOfWork
+    {
+        public UnitOfWork(IBudgetManagerDbContext context)
+        {
+            _context = context;
+        }
+
+        public int SaveChanges()
+        {
+            return _context.SaveChanges();
+        }
+
+        private readonly IBudgetManagerDbContext _context;
     }
 }
