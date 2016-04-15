@@ -16,7 +16,7 @@ namespace BudgetManager.Business.Services
         int SaveChanges();
     }
 
-    public class TransactionService
+    public class TransactionService : ITransactionService
     {
     }
 }
