@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BudgetManager.Domain.Models;
+using BudgetManager.Domain;
+
 
 namespace BudgetManager.Business.Services
 {
@@ -16,7 +17,7 @@ namespace BudgetManager.Business.Services
         int SaveChanges();
     }
 
-    public class TransactionService : ITransactionService
+    public class TransactionService 
     {
     }
 }
