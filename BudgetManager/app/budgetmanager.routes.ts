@@ -1,5 +1,1 @@
-﻿module BudgetManager {
-    'use strict';
-
-
-}
+﻿

@@ -1,6 +1,0 @@
-﻿CREATE TABLE [dbo].[AccountType]
-(
-	[Id]			INT				IDENTITY (1, 1) NOT FOR REPLICATION NOT NULL,
-	[Name]			NVARCHAR(25)	NOT NULL, 
-    CONSTRAINT [PK_AccountType] PRIMARY KEY ([Id])
-)
