@@ -57,16 +57,15 @@
     <Compile Include="Services\TransactionService.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BudgetManager.Domain\BudgetManager.Domain.csproj">
+      <Project>{70F5B48D-1328-407A-9A23-E5F2FABD5FF3}</Project>
+      <Name>BudgetManager.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BudgetManager.Domain\BudgetManager.Domain.csproj">
-      <Project>{F61F2222-6B8D-41EB-BF73-A0A761D3F0BC}</Project>
-      <Name>BudgetManager.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
