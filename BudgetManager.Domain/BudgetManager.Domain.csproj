@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F61F2222-6B8D-41EB-BF73-A0A761D3F0BC}</ProjectGuid>
+    <ProjectGuid>{70F5B48D-1328-407A-9A23-E5F2FABD5FF3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BudgetManager.Domain</RootNamespace>
@@ -52,59 +52,61 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs">
-      <DependentUpon>EntityModels.tt</DependentUpon>
+      <DependentUpon>BudgetManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BudgetManager.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BudgetManager.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BudgetManager.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BudgetManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BudgetManager.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BudgetManager.edmx</DependentUpon>
     </Compile>
     <Compile Include="Category.cs">
-      <DependentUpon>EntityModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityModels.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EntityModels.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EntityModels.edmx</DependentUpon>
+      <DependentUpon>BudgetManager.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubCategory.cs">
+      <DependentUpon>BudgetManager.tt</DependentUpon>
+    </Compile>
     <Compile Include="Transaction.cs">
-      <DependentUpon>EntityModels.tt</DependentUpon>
+      <DependentUpon>BudgetManager.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="EntityModels.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntityModels.edmx</DependentUpon>
-      <LastGenOutput>EntityModels.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="EntityModels.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>EntityModels.edmx</DependentUpon>
-      <LastGenOutput>EntityModels.cs</LastGenOutput>
-    </Content>
+    <EntityDeploy Include="BudgetManager.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BudgetManager.Designer.cs</LastGenOutput>
+    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <EntityDeploy Include="EntityModels.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>EntityModels.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="EntityModels.edmx.diagram">
-      <DependentUpon>EntityModels.edmx</DependentUpon>
+    <None Include="App.Config" />
+    <None Include="BudgetManager.edmx.diagram">
+      <DependentUpon>BudgetManager.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="BudgetManager.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BudgetManager.edmx</DependentUpon>
+      <LastGenOutput>BudgetManager.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="BudgetManager.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BudgetManager.edmx</DependentUpon>
+      <LastGenOutput>BudgetManager.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
