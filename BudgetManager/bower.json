@@ -1,0 +1,25 @@
+{
+  "name": "BudgetManager",
+  "homepage": "https://github.com/tslang/BudgetManager",
+  "authors": [
+    "Thad Lang <thad.lang@outlook.com>"
+  ],
+  "description": "BudgetManager Project",
+  "main": "index.html",
+  "keywords": [
+    "bower"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5",
+    "jquery": "^2.2.3",
+    "bootstrap": "^3.3.6"
+  }
+}
