@@ -196,8 +196,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\home\index.html" />
-    <Content Include="app\transaction\transaction.html" />
     <Content Include="bower_components\angular-ui-router\release\angular-ui-router.js" />
     <Content Include="bower_components\angular-ui-router\release\angular-ui-router.min.js" />
     <Content Include="bower_components\angular-ui-router\src\common.js" />
@@ -311,12 +309,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="app\home\home.module.ts" />
-    <TypeScriptCompile Include="app\home\homeIndexController.ts" />
-    <TypeScriptCompile Include="app\transaction\transaction.module.ts" />
-    <TypeScriptCompile Include="app\transaction\transactionController.ts" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BudgetManager.Business\BudgetManager.Business.csproj">
