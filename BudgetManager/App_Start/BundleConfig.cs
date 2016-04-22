@@ -12,7 +12,20 @@ namespace BudgetManager
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
+
+            bundles.Add(new ScriptBundle("~bundles/knockout").Include(
+                        "~/Scripts/knockout-{version}.js",
+                        "~/Scripts/knockout.validation.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/angularJS").Include(
+                        "~/bower_components/angular/angular.js",
+                        "~/bower_components/angular-ui-router/release/angular-ui-router.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/BudgetManager").Include(
+                        "~/app/budgetManager.module.js",
+                        "~/app/home/home.module.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
