@@ -1,0 +1,1 @@
+﻿/// <reference path="C:\Projects\Personal\BudgetManager\BudgetManager.Web/typings/tsd.d.ts" />
