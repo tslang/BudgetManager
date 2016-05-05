@@ -1,9 +1,0 @@
-﻿{
-  "compilerOptions": {
-    "noImplicitAny": false,
-    "listFiles": false,
-    "sourceMap": true,
-    "target": "ES6"
-  }
-
-}
