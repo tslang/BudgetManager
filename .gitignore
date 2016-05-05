@@ -8,7 +8,7 @@
 *.sln.docstates
 typings/
 node_modules/
-budgetManager.module.js.map
+*.map
 
 
 
