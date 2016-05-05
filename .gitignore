@@ -8,6 +8,7 @@
 *.sln.docstates
 typings/
 node_modules/
+Service References/
 
 
 # User-specific files (MonoDevelop/Xamarin Studio)
