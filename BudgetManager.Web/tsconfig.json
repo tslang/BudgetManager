@@ -1,0 +1,7 @@
+﻿{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "listFiles": true,
+    "target": "ES6"
+  }
+}
