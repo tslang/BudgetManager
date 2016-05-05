@@ -10,7 +10,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{007A5A1E-BF60-478F-9A5B-3A60495621D1}</ProjectGuid>
+    <ProjectGuid>{69CD797E-1A25-4448-9933-C8357BAC0E78}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -222,18 +222,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\account\accountIndex.html" />
+    <Content Include="app\budget\budgetIndex.html" />
     <Content Include="app\home\homeIndex.html" />
     <Content Include="app\transaction\transactionIndex.html" />
-    <Content Include="bower_components\angular-bootstrap\.gitignore" />
-    <Content Include="bower_components\angular-bootstrap\index.js" />
-    <Content Include="bower_components\angular-bootstrap\ui-bootstrap-csp.css" />
-    <Content Include="bower_components\angular-bootstrap\ui-bootstrap-tpls.js" />
-    <Content Include="bower_components\angular-bootstrap\ui-bootstrap-tpls.min.js" />
-    <Content Include="bower_components\angular-bootstrap\ui-bootstrap.js" />
-    <Content Include="bower_components\angular-bootstrap\ui-bootstrap.min.js" />
-    <Content Include="bower_components\angular-sanitize\angular-sanitize.js" />
-    <Content Include="bower_components\angular-sanitize\angular-sanitize.min.js" />
-    <Content Include="bower_components\angular-sanitize\index.js" />
+    <Content Include="bower_components\angular-ui-router\release\angular-ui-router.js" />
+    <Content Include="bower_components\angular-ui-router\release\angular-ui-router.min.js" />
+    <Content Include="bower_components\angular-ui-router\src\common.js" />
+    <Content Include="bower_components\angular-ui-router\src\resolve.js" />
+    <Content Include="bower_components\angular-ui-router\src\state.js" />
+    <Content Include="bower_components\angular-ui-router\src\stateDirectives.js" />
+    <Content Include="bower_components\angular-ui-router\src\stateFilters.js" />
+    <Content Include="bower_components\angular-ui-router\src\templateFactory.js" />
+    <Content Include="bower_components\angular-ui-router\src\urlMatcherFactory.js" />
+    <Content Include="bower_components\angular-ui-router\src\urlRouter.js" />
+    <Content Include="bower_components\angular-ui-router\src\view.js" />
+    <Content Include="bower_components\angular-ui-router\src\viewDirective.js" />
+    <Content Include="bower_components\angular-ui-router\src\viewScroll.js" />
     <Content Include="bower_components\angular\angular-csp.css" />
     <Content Include="bower_components\angular\angular.js" />
     <Content Include="bower_components\angular\angular.min.js" />
@@ -244,10 +248,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="node_modules\tsc\lib\tsc.js" />
-    <Content Include="node_modules\tsc\lib\tsserver.js" />
-    <Content Include="node_modules\tsc\lib\typescript.js" />
-    <Content Include="node_modules\tsc\lib\typescriptServices.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -261,29 +261,12 @@
     <Content Include="bower_components\angular\bower.json" />
     <Content Include="bower_components\angular\package.json" />
     <Content Include="bower_components\angular\README.md" />
-    <Content Include="node_modules\.bin\tsc" />
-    <Content Include="node_modules\.bin\tsc.cmd" />
-    <Content Include="node_modules\.bin\tsserver" />
-    <Content Include="node_modules\.bin\tsserver.cmd" />
-    <Content Include="node_modules\tsc\.npmignore" />
-    <Content Include="node_modules\tsc\bin\tsc" />
-    <Content Include="node_modules\tsc\bin\tsserver" />
-    <Content Include="node_modules\tsc\CONTRIBUTING.md" />
-    <Content Include="node_modules\tsc\package.json" />
-    <Content Include="node_modules\tsc\prepare.sh" />
-    <Content Include="node_modules\tsc\quick.sh" />
-    <Content Include="node_modules\tsc\README.md" />
-    <Content Include="node_modules\tsc\release.sh" />
-    <Content Include="bower_components\angular-bootstrap\.bower.json" />
-    <Content Include="bower_components\angular-bootstrap\.npmignore" />
-    <Content Include="bower_components\angular-bootstrap\bower.json" />
-    <Content Include="bower_components\angular-bootstrap\package.json" />
-    <Content Include="bower_components\angular-bootstrap\README.md" />
-    <Content Include="bower_components\angular-sanitize\.bower.json" />
-    <Content Include="bower_components\angular-sanitize\angular-sanitize.min.js.map" />
-    <Content Include="bower_components\angular-sanitize\bower.json" />
-    <Content Include="bower_components\angular-sanitize\package.json" />
-    <Content Include="bower_components\angular-sanitize\README.md" />
+    <Content Include="bower_components\angular-ui-router\.bower.json" />
+    <Content Include="bower_components\angular-ui-router\bower.json" />
+    <Content Include="bower_components\angular-ui-router\CHANGELOG.md" />
+    <Content Include="bower_components\angular-ui-router\CONTRIBUTING.md" />
+    <Content Include="bower_components\angular-ui-router\LICENSE" />
+    <Content Include="bower_components\angular-ui-router\README.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -336,6 +319,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\api\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -349,25 +333,28 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BudgetManager.Business\BudgetManager.Business.csproj">
+      <Project>{14a3b60b-51c7-4b65-b564-88c5a8f363f9}</Project>
+      <Name>BudgetManager.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BudgetManager.Domain\BudgetManager.Domain.csproj">
+      <Project>{70f5b48d-1328-407a-9a23-e5f2fabd5ff3}</Project>
+      <Name>BudgetManager.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <TypeScriptCompile Include="app\account\account.module.ts" />
+    <TypeScriptCompile Include="app\account\account.service.ts" />
     <TypeScriptCompile Include="app\account\accountIndexController.ts" />
-    <TypeScriptCompile Include="app\budgetmanager.module.ts" />
-    <TypeScriptCompile Include="app\budgetmanager.routes.ts" />
+    <TypeScriptCompile Include="app\budgetManager.module.ts" />
+    <TypeScriptCompile Include="app\budgetManager.routes.ts" />
+    <TypeScriptCompile Include="app\budget\budget.module.ts" />
+    <TypeScriptCompile Include="app\budget\budgetIndexController.ts" />
     <TypeScriptCompile Include="app\home\home.module.ts" />
     <TypeScriptCompile Include="app\home\homeIndexController.ts" />
     <TypeScriptCompile Include="app\transaction\transaction.module.ts" />
     <TypeScriptCompile Include="app\transaction\transactionIndexController.ts" />
-    <TypeScriptCompile Include="greeter.ts" />
-    <TypeScriptCompile Include="node_modules\tsc\lib\lib.core.d.ts" />
-    <TypeScriptCompile Include="node_modules\tsc\lib\lib.core.es6.d.ts" />
-    <TypeScriptCompile Include="node_modules\tsc\lib\lib.d.ts" />
-    <TypeScriptCompile Include="node_modules\tsc\lib\lib.dom.d.ts" />
-    <TypeScriptCompile Include="node_modules\tsc\lib\lib.es6.d.ts" />
-    <TypeScriptCompile Include="node_modules\tsc\lib\lib.scriptHost.d.ts" />
-    <TypeScriptCompile Include="node_modules\tsc\lib\lib.webworker.d.ts" />
-    <TypeScriptCompile Include="node_modules\tsc\lib\typescript.d.ts" />
-    <TypeScriptCompile Include="node_modules\tsc\lib\typescriptServices.d.ts" />
-    <TypeScriptCompile Include="tsd.d.ts" />
+    <TypeScriptCompile Include="typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />
     <TypeScriptCompile Include="typings\angular-ui-router\angular-ui-router.d.ts" />
     <TypeScriptCompile Include="typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="typings\jquery\jquery.d.ts" />
@@ -393,7 +380,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>61836</DevelopmentServerPort>
+          <DevelopmentServerPort>27277</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:46576/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

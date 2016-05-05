@@ -49,12 +49,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BudgetManagerDbContext.cs" />
+    <Compile Include="BusinessLogic\AccountBusinessLogic.cs" />
     <Compile Include="BusinessLogic\TransactionBusinessLogic.cs" />
     <Compile Include="DataAccess\BudgetManagerUnitOfWorkAdapter.cs" />
     <Compile Include="DataAccess\DataServiceBase.cs" />
     <Compile Include="DataAccess\DbSetRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\TransactionService.cs" />
+    <Compile Include="Services\AccountDataService.cs" />
+    <Compile Include="Services\TransactionDataService.cs" />
     <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>

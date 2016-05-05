@@ -2,23 +2,20 @@
     'use strict';
 
     export interface IHomeIndexController {
-        
+        title: string;
     }
 
     export class HomeIndexController implements IHomeIndexController {
-        
-        public title: string = 'Home';
-        
+        public title: string = "Home View";
+
         public static $inject: string[] = ['$state'];
 
         constructor(private $state: angular.ui.IStateService) {
-            
+
         }
     }
 
-
     angular
-        .module('budgetmanager.home')
+        .module('budgetManager.home')
         .controller('homeIndexController', HomeIndexController);
-
 }

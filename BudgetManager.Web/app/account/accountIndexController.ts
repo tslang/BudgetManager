@@ -2,16 +2,20 @@
     'use strict';
 
     export interface IAccountIndexController {
-        
+        title: string;
     }
 
-    export class AccountIndexController implements IAccountIndexController {
-        
-    }
+    export class AccountIndexController {
+        public title: string = "Account View";
 
+        public static $inject: string[] = ['$state'];
+
+        constructor(private $state: angular.ui.IStateService) {
+
+        }
+    }
 
     angular
-        .module('budgetmanager.account')
+        .module('budgetManager.account')
         .controller('accountIndexController', AccountIndexController);
-
 }

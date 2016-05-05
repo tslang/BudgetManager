@@ -1,11 +1,11 @@
 ﻿module BudgetManager {
     'use strict';
 
-    angular.module("budgetmanager", [
+    angular.module('budgetManager', [
         'ui.router',
-        'budgetmanager.home',
-        'budgetmanager.account',
-        'budgetmanager.transaction'
+        'budgetManager.home',
+        'budgetManager.account',
+        'budgetManager.budget',
+        'budgetManager.transaction'
     ]);
-
 }

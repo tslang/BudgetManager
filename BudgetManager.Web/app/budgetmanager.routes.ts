@@ -1,14 +1,14 @@
 ﻿module BudgetManager {
-    "use strict";
+    'use strict';
 
     class RouteConfig {
-        static $inject: string[] = ["$stateProvider", "$urlRouteProvider", "$locationProvider"];
+        public static $inject: string[] = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
         constructor($stateProvider: angular.ui.IStateProvider,
-            $urlRouteProvider: angular.ui.IUrlRouterProvider,
+            $urlRouterProvider: angular.ui.IUrlRouterProvider,
             $locationProvider: angular.ILocationProvider) {
 
-            $urlRouteProvider.otherwise('/');
+            $urlRouterProvider.otherwise('/');
 
             $stateProvider.state('homeIndex', {
                 url: '/',
@@ -16,21 +16,27 @@
                 controller: 'homeIndexController as vm',
                 data: { pageTitle: 'Home' }
             });
-            $stateProvider.state('accountsIndex', {
+            $stateProvider.state('accountIndex', {
                 url: '/Accounts',
-                templateUrl: '/app/account/accountIndex.html',
+                templateUrl: 'app/account/accountIndex.html',
                 controller: 'accountIndexController as vm',
-                data: { pageTitle: 'Index' }
+                data: { pageTitle: 'Account' }
             });
-            $stateProvider.state('transactionsIndex', {
+            $stateProvider.state('budgetIndex', {
+                url: '/Budget',
+                templateUrl: '/app/budget/budgetIndex.html',
+                controller: 'budgetIndexController as vm',
+                data: { pageTitle: 'Budget' }
+            });
+            $stateProvider.state('transactionIndex', {
                 url: '/Transactions',
                 templateUrl: '/app/transaction/transactionIndex.html',
                 controller: 'transactionIndexController as vm',
-                data: { pageTitle: 'Index' }
+                data: { pageTitle: 'Transactions' }
             });
         }
     }
 
-    angular.module('budgetmanager')
+    angular.module("budgetManager")
         .config(RouteConfig);
 }

@@ -16,16 +16,37 @@ namespace BudgetManager.Web
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+            bundles.Add(new ScriptBundle("~/bundles/modernizr")
+                .Include("~/Scripts/modernizr-*")
+                );
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+            bundles.Add(new ScriptBundle("~/bundles/angularJS")
+                .Include("~/bower_components/angular/angular.js")
+                .Include("~/bower_components/angular-ui-router/release/angular-ui-router.js")
+                );
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap")
+                .Include("~/Scripts/bootstrap.js")
+                .Include("~/Scripts/respond.js")
+                );
+
+            bundles.Add(new StyleBundle("~/Content/css")
+                .Include("~/Content/bootstrap.css")
+                .Include("~/Content/site.css")
+                );
+
+            bundles.Add(new ScriptBundle("~/bundles/BudgetManager")
+                .Include("~/app/budgetManager.module.js")
+                .Include("~/app/budgetManager.routes.js")
+                .Include("~/app/home/home.module.js")
+                .Include("~/app/home/homeIndexController.js")
+                .Include("~/app/account/account.module.js")
+                .Include("~/app/account/accountIndexController.js")
+                .Include("~/app/budget/budget.module.js")
+                .Include("~/app/budget/budgetIndexController.js")
+                .Include("~/app/transaction/transaction.module.js")
+                .Include("~/app/transaction/transactionIndexController.js")
+                );
         }
     }
 }
