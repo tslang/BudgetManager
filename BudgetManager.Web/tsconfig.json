@@ -1,7 +1,7 @@
 ﻿{
   "compilerOptions": {
     "noImplicitAny": false,
-    "listFiles": true,
+    "listFiles": false,
     "sourceMap": true,
     "target": "ES6"
   }

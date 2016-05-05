@@ -8,7 +8,8 @@
 *.sln.docstates
 typings/
 node_modules/
-Service References/
+budgetManager.module.js.map
+
 
 
 # User-specific files (MonoDevelop/Xamarin Studio)
