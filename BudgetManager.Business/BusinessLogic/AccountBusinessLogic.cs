@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace BudgetManager.Business.BusinessLogic
 {
-    public class AccountBusinessLogic
+    public interface IAccountBusinessLogic
+    {
+        
+    }
+
+    public class AccountBusinessLogic : IAccountBusinessLogic
     {
     }
 }
