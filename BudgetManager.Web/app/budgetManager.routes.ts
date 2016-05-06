@@ -22,6 +22,18 @@
                 controller: 'accountIndexController as vm',
                 data: { pageTitle: 'Accounts' }
             });
+            $stateProvider.state('budgetIndex', {
+                url: '/Budget',
+                templateUrl: '/app/budget/budgetIndex.html',
+                controller: 'budgetIndexController as vm',
+                data: { pageTitle: 'Budget' }
+            });
+            $stateProvider.state('transactionIndex', {
+                url: '/Transactions',
+                templateUrl: '/app/transaction/transactionIndex.html',
+                controller: 'transactionIndexController as vm',
+                data: { pageTitle: 'Transactions' }
+            });
         }
     }
 

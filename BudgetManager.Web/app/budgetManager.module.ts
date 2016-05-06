@@ -4,6 +4,8 @@
     angular.module('budgetManager', [
         'ui.router',
         'budgetManager.home',
-        'budgetManager.account'
+        'budgetManager.account',
+        'budgetManager.budget',
+        'budgetManager.transaction'
     ]);
 }
