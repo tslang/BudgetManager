@@ -19,6 +19,7 @@ namespace BudgetManager.Domain
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            #region "Account"
             modelBuilder.Entity<Account>()
                 .Property(e => e.Amount)
                 .HasPrecision(19, 4);
@@ -27,7 +28,9 @@ namespace BudgetManager.Domain
                 .HasMany(e => e.Transactions)
                 .WithRequired(e => e.Account)
                 .WillCascadeOnDelete(false);
+            #endregion
 
+            #region "Category"
             modelBuilder.Entity<Category>()
                 .HasMany(e => e.SubCategories)
                 .WithRequired(e => e.Category)
@@ -37,10 +40,13 @@ namespace BudgetManager.Domain
                 .HasMany(e => e.Transactions)
                 .WithRequired(e => e.Category)
                 .WillCascadeOnDelete(false);
+            #endregion
 
+            #region "Transaction
             modelBuilder.Entity<Transaction>()
                 .Property(e => e.Amount)
                 .HasPrecision(19, 4);
+            #endregion
         }
     }
 }
