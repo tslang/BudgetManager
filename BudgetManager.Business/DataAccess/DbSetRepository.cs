@@ -14,7 +14,7 @@ namespace BudgetManager.Business.DataAccess
         {
             this.UnitOfWork = unitOfWork;
             this.DbSet = dbSet;
-        } 
+        }
 
         protected IUnitOfWork UnitOfWork { get; set; }
         protected IDbSet<TEntity> DbSet { get; set; }

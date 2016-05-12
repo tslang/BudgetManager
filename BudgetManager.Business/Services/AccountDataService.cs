@@ -16,6 +16,7 @@ namespace BudgetManager.Business.Services
         Account Add(Account account);
         Account Remove(Account account);
         int SaveChanges();
+        bool Exists(Expression<Func<Account, bool>> expression);
     }
 
     public class AccountDataService : DataServiceBase<Account>, IAccountDataService
@@ -28,14 +29,18 @@ namespace BudgetManager.Business.Services
 
         private IBudgetManagerDbContext _Context { get; set; }
 
+        #region "GetAllAccounts"
         public IEnumerable<Account> GetAllAccounts()
         {
             return _Context.Accounts.ToList();
         }
+        #endregion
 
+        #region "GetAccountById"
         public Account GetAccountById(int id)
         {
             return _Context.Accounts.SingleOrDefault(x => x.Id == id);
         }
+#endregion
     }
 }
