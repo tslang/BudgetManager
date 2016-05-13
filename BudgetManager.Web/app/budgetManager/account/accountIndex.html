@@ -1,0 +1,38 @@
+﻿<div class="container">
+    <div>
+        <h3>{{vm.title}}</h3>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div ng-show="vm.isLoading"></div>
+        </div>
+    </div>
+    <div class="row" ng-hide="vm.isLoading">
+        <div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Select {{vm.title}}
+                    </h3>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Bank</th>
+                        <th>Amount</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="account in vm.accounts">
+                        <td>{{account.Name}}</td>
+                        <td>{{account.Bank}}</td>
+                        <td>{{account.Amount | currency}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
