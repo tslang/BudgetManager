@@ -14,7 +14,7 @@ namespace BudgetManager.Business.BusinessLogic
         void Update(Account account);
         void Remove(int accountId);
         bool DoesAccountAlreadyExist(Account account);
-
+        Account GetAccountDetails(int accountId);
 
     }
 
@@ -56,11 +56,11 @@ namespace BudgetManager.Business.BusinessLogic
             this.AccountDataService.Remove(account);
         }
 
+        public Account GetAccountDetails(int accountId)
+        {
+            return this.AccountDataService.GetDetails(accountId);
+        }
 
         private IAccountDataService AccountDataService { get; set; }
     }
-
-
-
-
 }

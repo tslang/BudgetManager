@@ -209,6 +209,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\api\AccountController.cs" />
+    <Compile Include="Controllers\api\TransactionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -221,10 +223,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\account\accountIndex.html" />
-    <Content Include="app\budget\budgetIndex.html" />
-    <Content Include="app\home\homeIndex.html" />
-    <Content Include="app\transaction\transactionIndex.html" />
+    <Content Include="app\budgetManager\account\accountIndex.html" />
+    <Content Include="app\budgetManager\budget\budgetIndex.html" />
+    <Content Include="app\budgetManager\home\homeIndex.html" />
+    <Content Include="app\budgetManager\transaction\transactionIndex.html" />
     <Content Include="bower_components\angular-ui-router\release\angular-ui-router.js" />
     <Content Include="bower_components\angular-ui-router\release\angular-ui-router.min.js" />
     <Content Include="bower_components\angular-ui-router\src\common.js" />
@@ -436,10 +438,14 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="tsconfig.json" />
     <Content Include="tsd.json" />
+    <Content Include="wallaby.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\api\" />
+    <Folder Include="JSTests\account\" />
+    <Folder Include="JSTests\budget\" />
+    <Folder Include="JSTests\home\" />
+    <Folder Include="JSTests\transaction\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -463,18 +469,22 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app\account\account.module.ts" />
-    <TypeScriptCompile Include="app\account\account.service.ts" />
-    <TypeScriptCompile Include="app\account\accountIndexController.ts" />
-    <TypeScriptCompile Include="app\budgetManager.module.ts" />
-    <TypeScriptCompile Include="app\budgetManager.routes.ts" />
-    <TypeScriptCompile Include="app\budget\budget.module.ts" />
-    <TypeScriptCompile Include="app\budget\budgetIndexController.ts" />
-    <TypeScriptCompile Include="app\home\home.module.ts" />
-    <TypeScriptCompile Include="app\home\homeIndexController.ts" />
-    <TypeScriptCompile Include="app\transaction\transaction.module.ts" />
-    <TypeScriptCompile Include="app\transaction\transaction.service.ts" />
-    <TypeScriptCompile Include="app\transaction\transactionIndexController.ts" />
+    <TypeScriptCompile Include="app\budgetManager\account\account.constant.ts" />
+    <TypeScriptCompile Include="app\budgetManager\account\account.module.ts" />
+    <TypeScriptCompile Include="app\budgetManager\account\account.service.ts" />
+    <TypeScriptCompile Include="app\budgetManager\account\accountIndexController.ts" />
+    <TypeScriptCompile Include="app\budgetManager\budgetManager.module.ts" />
+    <TypeScriptCompile Include="app\budgetManager\budgetManager.routes.ts" />
+    <TypeScriptCompile Include="app\budgetManager\budget\budget.module.ts" />
+    <TypeScriptCompile Include="app\budgetManager\budget\budgetIndexController.ts" />
+    <TypeScriptCompile Include="app\budgetManager\home\home.module.ts" />
+    <TypeScriptCompile Include="app\budgetManager\home\homeIndexController.ts" />
+    <TypeScriptCompile Include="app\budgetManager\transaction\transaction.module.ts" />
+    <TypeScriptCompile Include="app\budgetManager\transaction\transaction.service.ts" />
+    <TypeScriptCompile Include="app\budgetManager\transaction\transactionIndexController.ts" />
+    <TypeScriptCompile Include="app\core\dataServiceHelper.service.ts" />
+    <TypeScriptCompile Include="app\core\core.module.ts" />
+    <TypeScriptCompile Include="app\core\urlHelper.service.ts" />
     <TypeScriptCompile Include="typings\angular-ui-router\angular-ui-router.d.ts" />
     <TypeScriptCompile Include="typings\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="typings\jquery\jquery.d.ts" />

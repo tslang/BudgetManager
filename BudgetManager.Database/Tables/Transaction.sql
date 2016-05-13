@@ -1,11 +1,11 @@
-﻿CREATE TABLE [dbo].[Transaction]
-(
-	[Id]			INT				NOT NULL IDENTITY, 
-    [Description]			NVARCHAR(MAX)	NULL, 
-    [Amount]				MONEY			NOT NULL, 
-    [CategoryId]			INT				NOT NULL,
-	[AccountId]				INT				NOT NULL
-	CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED ([Id]),
-	CONSTRAINT [FK_Transaction_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [dbo].[Category] ([Id]),
-	CONSTRAINT [FK_Transaction_AccountId] FOREIGN KEY ([AccountId]) REFERENCES [dbo].[Account] ([Id])
-)
+﻿CREATE TABLE [BudgetManager].[Transaction] (
+    [Id]          INT            IDENTITY (1, 1) NOT NULL,
+    [Description] NVARCHAR (MAX) NULL,
+    [Amount]      MONEY          NOT NULL,
+    [CategoryId]  INT            NOT NULL,
+    [AccountId]   INT            NOT NULL,
+    CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Transaction_AccountId] FOREIGN KEY ([AccountId]) REFERENCES [BudgetManager].[Account] ([Id]),
+    CONSTRAINT [FK_Transaction_CategoryId] FOREIGN KEY ([CategoryId]) REFERENCES [BudgetManager].[Category] ([Id])
+);
+

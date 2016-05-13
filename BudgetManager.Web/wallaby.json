@@ -1,0 +1,82 @@
+﻿{
+  "files": [
+    {
+      "pattern": "bower_components/sinonjs/sinon.js",
+      "instrument": false
+    },
+    {
+      "pattern": "bower_components/angular/angular.js",
+      "instrument": false
+    },
+    {
+      "pattern": "bower_components/angular-ui-router/release/angular-ui-router.js",
+      "instrument": false
+    },
+    {
+      "pattern": "bower_components/angular-mocks/angular-mocks.js",
+      "instrument": false
+    },
+    {
+      "pattern": "bower_components/angular-sanitize/angular-sanitize.js",
+      "instrument": false
+    },
+    {
+      "pattern": "bower_components/angular-animate/angular-animate.js",
+      "instrument": false
+    },
+    {
+      "pattern": "bower_components/angular-bootstrap/ui-bootstrap-tpls.js",
+      "instrument": false
+    },
+    {
+      "pattern": "bower_components/ui-select/dist/select.js",
+      "instrument": false
+    },
+    {
+      "pattern": "bower_components/angular-toastr/dist/angular-toastr.tpls.js",
+      "instrument": false
+    },
+    {
+      "pattern": "bower_components/angular-ui-grid/ui-grid.js",
+      "instrument": false
+    },
+    {
+      "pattern": "bower_components/checklist-model/checklist-model.js",
+      "instrument": false
+    },
+    {
+      "pattern": "bower_components/ng-tags-input/ng-tags-input.js",
+      "instrument": false
+    },
+    {
+      "pattern": "JSTests/lib/specHelper.js",
+      "instrument": false
+    },
+    {
+      "pattern": "JSTests/**/mock*.ts",
+      "instrument": false
+    },
+    "app/**/*.route.ts",
+    "app/**/*.module.js",
+    "app/**/*.module.ts",
+    "app/**/*.constants.js",
+    "app/**/*.constants.ts",
+    "app/**/*.service.js",
+    "app/**/*.service.ts",
+    "app/**/*.directive.js",
+    "app/**/*.directive.ts",
+    "app/**/*.js",
+    "app/**/*.ts",
+    "JSTests/rsis/*.service.js",
+    "JSTests/rsis/*.service.ts",
+    "JSTests/rsis/*.templates.js",
+    "JSTests/rsis/*.templates.ts",
+    "JSTests/ngTestDoubles/*.ts",
+    "JSTests/*.templates.js"
+  ],
+  "tests": [
+    "JSTests/**/*.spec.ts",
+    "JSTests/**/*.spec.js"
+  ],
+  "testFramework": "jasmine"
+}

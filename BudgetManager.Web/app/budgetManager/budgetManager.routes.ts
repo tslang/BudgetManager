@@ -12,25 +12,25 @@
 
             $stateProvider.state('homeIndex', {
                 url: '/',
-                templateUrl: '/app/home/homeIndex.html',
+                templateUrl: '/app/budgetManager/home/homeIndex.html',
                 controller: 'homeIndexController as vm',
                 data: { pageTitle: 'Home' }
             });
             $stateProvider.state('accountIndex', {
                 url: '/Accounts',
-                templateUrl: '/app/account/accountIndex.html',
+                templateUrl: '/app/budgetManager/account/accountIndex.html',
                 controller: 'accountIndexController as vm',
                 data: { pageTitle: 'Accounts' }
             });
             $stateProvider.state('budgetIndex', {
                 url: '/Budget',
-                templateUrl: '/app/budget/budgetIndex.html',
+                templateUrl: '/app/budgetManager/budget/budgetIndex.html',
                 controller: 'budgetIndexController as vm',
                 data: { pageTitle: 'Budget' }
             });
             $stateProvider.state('transactionIndex', {
                 url: '/Transactions',
-                templateUrl: '/app/transaction/transactionIndex.html',
+                templateUrl: '/app/budgetManager/transaction/transactionIndex.html',
                 controller: 'transactionIndexController as vm',
                 data: { pageTitle: 'Transactions' }
             });

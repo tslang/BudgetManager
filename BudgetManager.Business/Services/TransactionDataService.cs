@@ -39,7 +39,5 @@ namespace BudgetManager.Business.Services
             return Context.Transactions.SingleOrDefault(x => x.Id == id);
         }
 
-        
-
     }
 }
