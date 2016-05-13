@@ -479,6 +479,7 @@
     <TypeScriptCompile Include="app\budgetManager\budget\budgetIndexController.ts" />
     <TypeScriptCompile Include="app\budgetManager\home\home.module.ts" />
     <TypeScriptCompile Include="app\budgetManager\home\homeIndexController.ts" />
+    <TypeScriptCompile Include="app\budgetManager\transaction\transaction.constant.ts" />
     <TypeScriptCompile Include="app\budgetManager\transaction\transaction.module.ts" />
     <TypeScriptCompile Include="app\budgetManager\transaction\transaction.service.ts" />
     <TypeScriptCompile Include="app\budgetManager\transaction\transactionIndexController.ts" />

@@ -6,18 +6,19 @@ namespace BudgetManager.Domain
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("SubCategory")]
-    public partial class SubCategory
+    [Table("BudgetManager.Category")]
+    public partial class Category
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Category()
+        {
+
+        }
+
         public int Id { get; set; }
 
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
-
-        public int CategoryId { get; set; }
-
-        public virtual Category Category { get; set; }
     }
 }

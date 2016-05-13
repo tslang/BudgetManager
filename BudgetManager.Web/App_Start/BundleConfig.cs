@@ -47,6 +47,7 @@ namespace BudgetManager.Web
                 .Include("~/app/budgetManager/account/account.constant.js")
                 .Include("~/app/budgetManager/budget/budget.module.js")
                 .Include("~/app/budgetManager/transaction/transaction.module.js")
+                .Include("~/app/budgetManager/transaction/transaction.constant.js")
                 .Include("~/app/budgetManager/home/homeIndexController.js")
                 .Include("~/app/budgetManager/account/account.service.js")
                 .Include("~/app/budgetManager/account/accountIndexController.js")

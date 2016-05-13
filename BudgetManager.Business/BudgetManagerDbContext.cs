@@ -36,7 +36,7 @@
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<Account>()
                 .HasMany(x => x.Transactions)
-                .WithRequired(x => x.Account);
+                .WithRequired(x => x.Account).HasForeignKey(x => x.AccountId);
 
             #endregion
 
@@ -45,12 +45,15 @@
             modelBuilder.Entity<Transaction>().HasKey(x => x.Id);
             modelBuilder.Entity<Transaction>().Property(x => x.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            //modelBuilder.Entity<Transaction>().HasRequired(x => x.Category)
+            //    .WithMany()
+            //    .HasForeignKey(x => x.CategoryId);
+            //modelBuilder.Entity<Transaction>().HasRequired(x => x.SubCategory)
+            //    .WithMany()
+            //    .HasForeignKey(x => x.SubCategoryId);
             modelBuilder.Entity<Transaction>().HasRequired(x => x.Account)
                 .WithMany()
                 .HasForeignKey(x => x.AccountId);
-            modelBuilder.Entity<Transaction>().HasRequired(x => x.Category)
-                .WithMany()
-                .HasForeignKey(x => x.CategoryId);
             #endregion
 
             #region "Category"
@@ -58,12 +61,9 @@
             modelBuilder.Entity<Category>().HasKey(x => x.Id);
             modelBuilder.Entity<Category>().Property(x => x.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<Category>().HasMany(x => x.Transactions)
-                .WithRequired(x => x.Category);
-            modelBuilder.Entity<Category>().HasMany(x => x.Transactions)
-                .WithRequired(x => x.Category);
-            #endregion
 
+
+            #endregion
 
             #region "SubCategory"
             modelBuilder.Entity<SubCategory>().ToTable("SubCategory", AppSchemaName);
@@ -71,9 +71,7 @@
             modelBuilder.Entity<SubCategory>()
                 .Property(x => x.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<SubCategory>().HasRequired(x => x.Category)
-                .WithMany()
-                .HasForeignKey(x => x.CategoryId);
+         
             #endregion
 
             base.OnModelCreating(modelBuilder);
