@@ -6,13 +6,22 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "angularjs/angular.d.ts": {
-      "commit": "067edc80b9b70a1a4f342a53e7dc1dd00708d3fd"
+      "commit": "1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed"
     },
     "jquery/jquery.d.ts": {
-      "commit": "067edc80b9b70a1a4f342a53e7dc1dd00708d3fd"
+      "commit": "1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed"
     },
     "angular-ui-router/angular-ui-router.d.ts": {
       "commit": "067edc80b9b70a1a4f342a53e7dc1dd00708d3fd"
+    },
+    "jasmine/jasmine.d.ts": {
+      "commit": "1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed"
+    },
+    "angular-ui-bootstrap/angular-ui-bootstrap.d.ts": {
+      "commit": "1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed"
+    },
+    "sinon/sinon.d.ts": {
+      "commit": "1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed"
     }
   }
 }

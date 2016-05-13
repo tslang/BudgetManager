@@ -32,10 +32,10 @@ namespace BudgetManager.Web.Controllers.api
         }
 
         [System.Web.Http.HttpGet]
-        [System.Web.Http.Route("Update")]
-        public ActionResult Update(Transaction transaction)
+        [System.Web.Http.Route("Edit")]
+        public ActionResult Edit(Transaction transaction)
         {
-            this._transactionBusinessLogic.Update(transaction);
+            this._transactionBusinessLogic.Edit(transaction);
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
@@ -45,9 +45,9 @@ namespace BudgetManager.Web.Controllers.api
             return transaction;
         }
 
-        public ActionResult Add(Transaction transaction)
+        public ActionResult Create(Transaction transaction)
         {
-            this._transactionBusinessLogic.Add(transaction);
+            this._transactionBusinessLogic.Create(transaction);
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 

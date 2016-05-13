@@ -45,15 +45,17 @@
             modelBuilder.Entity<Transaction>().HasKey(x => x.Id);
             modelBuilder.Entity<Transaction>().Property(x => x.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Transaction>().HasRequired(x => x.Account)
+                .WithMany()
+                .HasForeignKey(x => x.AccountId);
             //modelBuilder.Entity<Transaction>().HasRequired(x => x.Category)
             //    .WithMany()
             //    .HasForeignKey(x => x.CategoryId);
             //modelBuilder.Entity<Transaction>().HasRequired(x => x.SubCategory)
             //    .WithMany()
             //    .HasForeignKey(x => x.SubCategoryId);
-            modelBuilder.Entity<Transaction>().HasRequired(x => x.Account)
-                .WithMany()
-                .HasForeignKey(x => x.AccountId);
+
+
             #endregion
 
             #region "Category"
@@ -61,7 +63,6 @@
             modelBuilder.Entity<Category>().HasKey(x => x.Id);
             modelBuilder.Entity<Category>().Property(x => x.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-
 
             #endregion
 
@@ -71,7 +72,10 @@
             modelBuilder.Entity<SubCategory>()
                 .Property(x => x.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-         
+            modelBuilder.Entity<SubCategory>().HasRequired(x => x.Category)
+                .WithMany()
+                .HasForeignKey(x => x.CategoryId);
+
             #endregion
 
             base.OnModelCreating(modelBuilder);

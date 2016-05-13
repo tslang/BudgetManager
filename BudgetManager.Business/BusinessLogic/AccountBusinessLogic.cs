@@ -10,8 +10,8 @@ namespace BudgetManager.Business.BusinessLogic
 {
     public interface IAccountBusinessLogic
     {
-        void Add(Account account);
-        void Update(Account account);
+        void Create(Account account);
+        void Edit(Account account);
         void Remove(int accountId);
         bool DoesAccountAlreadyExist(Account account);
         Account GetAccountDetails(int accountId);
@@ -25,41 +25,53 @@ namespace BudgetManager.Business.BusinessLogic
             this.AccountDataService = accountDataService;
         }
 
-        public void Add(Account account)
+        #region "Create"
+        public void Create(Account account)
         {
             this.AccountDataService.Add(account);
             this.AccountDataService.SaveChanges();
         }
+        #endregion
 
-        public void Update(Account model)
+        #region "Edit"
+        public void Edit(Account model)
         {
             var account = this.AccountDataService.GetAccountById(model.Id);
             MapForEdit(account, model);
             this.AccountDataService.SaveChanges();
         }
+        #endregion
 
+        #region "DoesAccountAlreadyExist
         public bool DoesAccountAlreadyExist(Account account)
         {
             return this.AccountDataService.Exists(x => x.Name == account.Name && x.Bank == account.Bank);
         }
+        #endregion
 
+        #region "MapForEdit"
         public static void MapForEdit(Account source, Account target)
         {
             target.Name = source.Name;
             target.Bank = source.Bank;
             target.Amount = source.Amount;
         }
+        #endregion
 
+        #region "Remove"
         public void Remove(int accountId)
         {
             var account = this.AccountDataService.GetAccountById(accountId);
             this.AccountDataService.Remove(account);
         }
+        #endregion
 
+        #region "GetDetails"
         public Account GetAccountDetails(int accountId)
         {
-            return this.AccountDataService.GetDetails(accountId);
+            return this.AccountDataService.GetAccountDetails(accountId);
         }
+        #endregion
 
         private IAccountDataService AccountDataService { get; set; }
     }

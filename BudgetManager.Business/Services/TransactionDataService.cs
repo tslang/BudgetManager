@@ -50,7 +50,7 @@ namespace BudgetManager.Business.Services
 
         #endregion
 
-        #region "GetDetails"
+        #region "GetTransactionDetails"
         public Transaction GetDetails(int id)
         {
             var transaction = this.SingleOrDefault(entity => id == entity.Id, x => x.Description, x => x.Amount,

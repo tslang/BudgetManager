@@ -4,8 +4,8 @@
     export interface IAccountService {
         getAll(): angular.IHttpPromise<any>;
         getDetail(id: number): angular.IHttpPromise<any>;
-        add(accountAddCommandModel: any): angular.IHttpPromise<any>;
-        update(accountUpdateCommandModel: any): angular.IHttpPromise<any>;
+        create(accountAddCommandModel: any): angular.IHttpPromise<any>;
+        edit(accountUpdateCommandModel: any): angular.IHttpPromise<any>;
     }
 
     export class AccountService implements IAccountService {
@@ -22,14 +22,14 @@
             return this.dataServiceHelper.get(Account.AccountUrls.details);
         }
 
-        public add(accountAddCommandModel: any): angular.IHttpPromise<any> {
+        public create(accountAddCommandModel: any): angular.IHttpPromise<any> {
             return this.dataServiceHelper.postWithParameters(Account.AccountUrls.create, {
                 model: accountAddCommandModel
             });
         }
 
-        public update(accountUpdateCommandModel: any): angular.IHttpPromise<any> {
-            return this.dataServiceHelper.postWithParameters(Account.AccountUrls.update, {
+        public edit(accountUpdateCommandModel: any): angular.IHttpPromise<any> {
+            return this.dataServiceHelper.postWithParameters(Account.AccountUrls.edit, {
                 model: accountUpdateCommandModel
             });
         }

@@ -8,7 +8,7 @@
     }
 
     export class TransactionIndexController implements ITransactionIndexController {
-        title: string = 'Transaction View';
+        title: string = 'Transaction';
         transactions: any[] = [];
         isLoading: boolean = false;
 

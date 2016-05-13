@@ -37,10 +37,10 @@ namespace BudgetManager.Web.Controllers.api
         }
 
         [System.Web.Http.HttpGet]
-        [System.Web.Http.Route("Update")]
-        public ActionResult Update(Account account)
+        [System.Web.Http.Route("Edit")]
+        public ActionResult Edit(Account account)
         {
-            this._accountBusinessLogic.Update(account);
+            this._accountBusinessLogic.Edit(account);
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
@@ -53,10 +53,10 @@ namespace BudgetManager.Web.Controllers.api
         }
 
         [System.Web.Http.HttpPost]
-        [System.Web.Http.Route("Add")]
-        public ActionResult Add(Account account)
+        [System.Web.Http.Route("Create")]
+        public ActionResult Create(Account account)
         {
-            this._accountBusinessLogic.Add(account);
+            this._accountBusinessLogic.Create(account);
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
