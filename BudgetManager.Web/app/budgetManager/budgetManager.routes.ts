@@ -26,7 +26,13 @@
                 url: '/Account/Details/:id',
                 templateUrl: '/app/budgetManager/account/accountDetails.html',
                 controller: 'accountDetailsController as vm',
-            data: { pageTitle: 'Account Details'}
+                data: { pageTitle: 'Account Details'}
+            });
+            $stateProvider.state('accountCreate', {
+                url: '/Account/Create',
+                templateUrl: '/app/budgetManager/account/accountCreate.html',
+                controller: 'accountCreateController as vm',
+                data: { pageTitle: 'Add Account'}
             });
             $stateProvider.state('budgetIndex', {
                 url: '/Budget',

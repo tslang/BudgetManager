@@ -38,6 +38,8 @@ namespace BudgetManager.Web
 
             bundles.Add(new ScriptBundle("~/bundles/BudgetManager")
                 .Include("~/app/core/core.module.js")
+                .Include("~/app/core/forms.service.js")
+                .Include("~/app/core/coreToast.service.js")
                 .Include("~/app/core/urlHelper.service.js")
                 .Include("~/app/core/dataServiceHelper.service.js")
                 .Include("~/app/budgetManager/budgetManager.module.js")
@@ -52,6 +54,8 @@ namespace BudgetManager.Web
                 .Include("~/app/budgetManager/account/account.service.js")
                 .Include("~/app/budgetManager/account/accountIndexController.js")
                 .Include("~/app/budgetManager/account/accountDetailsController.js")
+                .Include("~/app/budgetManager/account/accountCreateController.js")
+                .Include("~/app/budgetManager/account/accountEditController.js")
                 .Include("~/app/budgetManager/budget/budgetIndexController.js")
                 .Include("~/app/budgetManager/transaction/transaction.service.js")
                 .Include("~/app/budgetManager/transaction/transactionIndexController.js")

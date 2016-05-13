@@ -223,6 +223,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\budgetManager\account\accountCreate.html" />
     <Content Include="app\budgetManager\account\accountDetails.html" />
     <Content Include="app\budgetManager\account\accountIndex.html" />
     <Content Include="app\budgetManager\budget\budgetIndex.html" />
@@ -242,6 +243,14 @@
     <Content Include="bower_components\angular-sanitize\angular-sanitize.js" />
     <Content Include="bower_components\angular-sanitize\angular-sanitize.min.js" />
     <Content Include="bower_components\angular-sanitize\index.js" />
+    <Content Include="bower_components\angular-toastr\dist\angular-toastr.css" />
+    <Content Include="bower_components\angular-toastr\dist\angular-toastr.js" />
+    <Content Include="bower_components\angular-toastr\dist\angular-toastr.min.css" />
+    <Content Include="bower_components\angular-toastr\dist\angular-toastr.min.js" />
+    <Content Include="bower_components\angular-toastr\dist\angular-toastr.tpls.js" />
+    <Content Include="bower_components\angular-toastr\dist\angular-toastr.tpls.min.js" />
+    <Content Include="bower_components\angular-toastr\gulpfile.js" />
+    <Content Include="bower_components\angular-toastr\index.js" />
     <Content Include="bower_components\angular-ui-router\release\angular-ui-router.js" />
     <Content Include="bower_components\angular-ui-router\release\angular-ui-router.min.js" />
     <Content Include="bower_components\angular-ui-router\src\common.js" />
@@ -614,6 +623,12 @@
     <Content Include="bower_components\sinonjs\bower.json" />
     <Content Include="bower_components\sinonjs\README.md" />
     <Content Include="jasmine.json" />
+    <Content Include="bower_components\angular-toastr\.bower.json" />
+    <Content Include="bower_components\angular-toastr\.npmignore" />
+    <Content Include="bower_components\angular-toastr\bower.json" />
+    <Content Include="bower_components\angular-toastr\CONTRIBUTING.md" />
+    <Content Include="bower_components\angular-toastr\LICENSE" />
+    <Content Include="bower_components\angular-toastr\README.md" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -696,6 +711,7 @@
     <TypeScriptCompile Include="app\budgetManager\account\account.constant.ts" />
     <TypeScriptCompile Include="app\budgetManager\account\account.module.ts" />
     <TypeScriptCompile Include="app\budgetManager\account\account.service.ts" />
+    <TypeScriptCompile Include="app\budgetManager\account\accountCreateController.ts" />
     <TypeScriptCompile Include="app\budgetManager\account\accountDetailsController.ts" />
     <TypeScriptCompile Include="app\budgetManager\account\accountIndexController.ts" />
     <TypeScriptCompile Include="app\budgetManager\budgetManager.module.ts" />
@@ -708,12 +724,18 @@
     <TypeScriptCompile Include="app\budgetManager\transaction\transaction.module.ts" />
     <TypeScriptCompile Include="app\budgetManager\transaction\transaction.service.ts" />
     <TypeScriptCompile Include="app\budgetManager\transaction\transactionIndexController.ts" />
+    <TypeScriptCompile Include="app\core\coreToast.service.ts" />
     <TypeScriptCompile Include="app\core\dataServiceHelper.service.ts" />
     <TypeScriptCompile Include="app\core\core.module.ts" />
+    <TypeScriptCompile Include="app\core\forms.service.ts" />
     <TypeScriptCompile Include="app\core\urlHelper.service.ts" />
+    <TypeScriptCompile Include="typings\angular-toastr\angular-toastr.d.ts" />
     <TypeScriptCompile Include="typings\angular-ui-bootstrap\angular-ui-bootstrap.d.ts" />
     <TypeScriptCompile Include="typings\angular-ui-router\angular-ui-router.d.ts" />
     <TypeScriptCompile Include="typings\angularjs\angular.d.ts" />
+    <TypeScriptCompile Include="typings\budgetManager\accountCreateCommandModel.d.ts" />
+    <TypeScriptCompile Include="typings\core\ICreatedResultWithId.d.ts" />
+    <TypeScriptCompile Include="typings\core\ICreateEditStateParams.d.ts" />
     <TypeScriptCompile Include="typings\jasmine\jasmine.d.ts" />
     <TypeScriptCompile Include="typings\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="typings\sinon\sinon.d.ts" />

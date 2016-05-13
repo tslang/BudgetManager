@@ -22,6 +22,9 @@
     },
     "sinon/sinon.d.ts": {
       "commit": "1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed"
+    },
+    "angular-toastr/angular-toastr.d.ts": {
+      "commit": "1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed"
     }
   }
 }
