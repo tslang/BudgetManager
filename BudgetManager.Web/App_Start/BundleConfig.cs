@@ -38,8 +38,8 @@ namespace BudgetManager.Web
 
             bundles.Add(new ScriptBundle("~/bundles/BudgetManager")
                 .Include("~/app/core/core.module.js")
+                .Include("~/app/core/coreToastr.service.js")
                 .Include("~/app/core/forms.service.js")
-                .Include("~/app/core/coreToast.service.js")
                 .Include("~/app/core/urlHelper.service.js")
                 .Include("~/app/core/dataServiceHelper.service.js")
                 .Include("~/app/budgetManager/budgetManager.module.js")

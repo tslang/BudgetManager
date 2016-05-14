@@ -19,6 +19,7 @@ namespace BudgetManager.Business.DataAccess
 
         private IBudgetManagerDbContext _Context { get; set; }
 
+        #region "SaveChanges"
         public int SaveChanges()
         {
             try
@@ -41,13 +42,17 @@ namespace BudgetManager.Business.DataAccess
                 throw;
             }
         }
+        #endregion
 
+        #region "Dispose"
         public void Dispose()
         {
             this.Dispose(true);
             GC.SuppressFinalize(this);
         }
+        #endregion
 
+        #region "Dispose"
         public virtual void Dispose(bool disposing)
         {
             if (disposing != true)
@@ -61,5 +66,6 @@ namespace BudgetManager.Business.DataAccess
                 context.Dispose();
             }
         }
+        #endregion
     }
 }

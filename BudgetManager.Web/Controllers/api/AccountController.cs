@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Mvc;
 using BudgetManager.Business.BusinessLogic;
+using BudgetManager.Business.Models;
 using BudgetManager.Business.Services;
 using BudgetManager.Domain;
 

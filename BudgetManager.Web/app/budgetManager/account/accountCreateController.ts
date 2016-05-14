@@ -17,12 +17,12 @@
         public isSaving: boolean = false;
         public createForm: angular.IFormController;
 
-        public static $inject: string[] = ['$state', 'accountService', 'coreFormsService', 'coreToast'];
+        public static $inject: string[] = ['$state', 'accountService', 'toastr', 'coreFormsService'];
 
         constructor(private $state: angular.ui.IStateService,
             private accountService: Account.IAccountService,
-            private coreFormsService: Core.ICoreFormsService,
-            private coreToast: Core.ICoreToast) {
+            private toastr: Core.ICoreToastr,
+            private coreFormsService: Core.ICoreFormsService) {
 
         }
 
@@ -36,10 +36,9 @@
             var accountCreateCommandModel: Account.IAccountCreateCommandModel = this.mapForCreate();
             this.accountService.create(accountCreateCommandModel)
                 .then(() => {
-
-                this.coreToast.success(`${this.account.name} added successfully!`, null, null);
-                this.$state.go('accountIndex');
-            },
+                    this.toastr.success(`${this.account.name} added successfully!`, null, null);
+                    this.$state.go('accountIndex');
+                },
                 (response: any) => {
                     this.serverErrorMessages = this.coreFormsService.parseErrorMessagesFromModelStateErrorResponse(response);
                 }).finally(() => {
@@ -56,4 +55,7 @@
             };
         }
     }
+
+    angular.module('budgetManager.account')
+        .controller('accountCreateController', AccountCreateController);
 }

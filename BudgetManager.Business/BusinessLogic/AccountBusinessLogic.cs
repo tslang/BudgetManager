@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BudgetManager.Business.Models;
 using BudgetManager.Business.Services;
 using BudgetManager.Domain;
 
