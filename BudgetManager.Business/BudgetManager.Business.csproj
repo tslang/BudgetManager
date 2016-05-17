@@ -55,6 +55,8 @@
     <Compile Include="DataAccess\DataServiceBase.cs" />
     <Compile Include="DataAccess\DbSetRepository.cs" />
     <Compile Include="Models\AccountCreateCommandModel.cs" />
+    <Compile Include="Models\AccountDetailDTO.cs" />
+    <Compile Include="Models\AccountEditCommandModel.cs" />
     <Compile Include="Models\TransactionAddCommandModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountDataService.cs" />
@@ -74,6 +76,12 @@
   <ItemGroup>
     <TypeScriptCompile Include="Models\AccountCreateCommandModel.cs.d.ts">
       <DependentUpon>AccountCreateCommandModel.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\AccountDetailDTO.cs.d.ts">
+      <DependentUpon>AccountDetailDTO.cs</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Models\AccountEditCommandModel.cs.d.ts">
+      <DependentUpon>AccountEditCommandModel.cs</DependentUpon>
     </TypeScriptCompile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

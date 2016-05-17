@@ -85,7 +85,7 @@ namespace BudgetManager.Business.DataAccess
 
         public int SaveChanges()
         {
-            return Repository.SaveChanges();
+            return this.Repository.SaveChanges();
         }
 
         #endregion

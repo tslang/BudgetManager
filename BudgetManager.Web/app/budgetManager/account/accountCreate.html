@@ -1,1 +1,50 @@
-﻿{{vm.title}}
+﻿<div class="container">
+    <div class="headline">
+        <h2>Create Account</h2>
+    </div>
+    <div class="row">
+        <div>
+            <div class="row">
+                <form name="vm.editForm" novalidate role="form">
+                    <div class="form-group" ng-class="{'has-error' : vm.editForm.name.$invalid && vm.editForm.name.$dirty}">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" class="form-control" ng-model="vm.account.name" required ng-maxlength="50" />
+                        <span class="help-block" ng-show="vm.editForm.name.$error.required && vm.editForm.name.$dirty"><i class="fa fa-warning"></i>Please enter a name</span>
+                        <span class="help-block" ng-show="vm.editForm.name.$error.maxlength"><i class="fa fa-warning"></i> The name is too long</span>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error' : vm.editForm.bank.$invalid && vm.editForm.bank.$dirty}">
+                        <label for="bank">Bank</label>
+                        <input type="text" name="bank" id="bank" class="form-control" ng-model="vm.account.bank" required ng-maxlength="50" />
+                        <span class="help-block" ng-show="vm.editForm.bank.$error.required && vm.editForm.bank.$dirty"><i class="fa fa-warning"></i>Please enter a name</span>
+                        <span class="help-block" ng-show="vm.editForm.bank.$error.maxlength"><i class="fa fa-warning"></i> The name is too long</span>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error' : vm.editForm.amount.$invalid && vm.editForm.amount.$dirty}">
+                        <label for="amount">Amount</label>
+                        <input type="number" name="amount" id="amount" class="form-control" ng-model="vm.account.amount" required ng-maxlength="50"/>
+                        <span class="help-block" ng-show="vm.editForm.amount.$error.required && vm.editForm.amount.$dirty"><i class="fa fa-warning"></i>Please enter a name</span>
+                        <span class="help-block" ng-show="vm.editForm.amount.$error.maxlength"><i class="fa fa-warning"></i> The name is too long</span>
+                    </div>
+                    <div>
+                        <button id="save" class="btn btn-primary" ng-click="vm.save()" ng-disabled="vm.isSaving"><i class="fa fa-save"></i> Save</button>
+                        <a id="cancel" class="btn btn-default" ui-sref="accountIndex"><i class="fa fa-ban"></i> Cancel</a>
+                    </div>
+                    <br />
+
+                    <div class="panel panel-info" id="validationSummary" ng-show="vm.serverErrorMessages.length > 0">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <i class="fa fa-warning"></i>
+                                Errors have occurred
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <ul ng-show="vm.serverErrorMessages.length > 0">
+                                <li ng-repeat="serverErrorMessage in vm.serverErrorMessages">{{ serverErrorMessage }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

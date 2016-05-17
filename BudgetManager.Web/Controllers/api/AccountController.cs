@@ -34,7 +34,8 @@ namespace BudgetManager.Web.Controllers.api
         [System.Web.Http.Route("GetAll")]
         public IEnumerable<Account> GetAll()
         {
-            return this._accountDataService.GetAllAccounts();
+            var accounts = this._accountDataService.GetAllAccounts();
+            return accounts;
         }
 
         [System.Web.Http.HttpGet]
@@ -47,18 +48,30 @@ namespace BudgetManager.Web.Controllers.api
 
         [System.Web.Http.HttpGet]
         [System.Web.Http.Route("Get")]
-        public Account Get(int id)
+        public IHttpActionResult Get(int id)
         {
             var model = this._accountBusinessLogic.GetAccountDetails(id);
-            return model;
+            if (model == null)
+            {
+                return NotFound();
+            }
+            return Ok(model);
         }
 
         [System.Web.Http.HttpPost]
         [System.Web.Http.Route("Create")]
-        public ActionResult Create(Account account)
+        public ActionResult Create(AccountCreateCommandModel account)
         {
-            this._accountBusinessLogic.Create(account);
-            return new HttpStatusCodeResult(HttpStatusCode.OK);
+            if (account == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            else
+            {
+                _accountBusinessLogic.Create(account);
+                return new HttpStatusCodeResult(HttpStatusCode.OK);
+            }
+
         }
 
     }

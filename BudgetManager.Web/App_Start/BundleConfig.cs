@@ -24,6 +24,10 @@ namespace BudgetManager.Web
             bundles.Add(new ScriptBundle("~/bundles/angularJS")
                 .Include("~/bower_components/angular/angular.js")
                 .Include("~/bower_components/angular-ui-router/release/angular-ui-router.js")
+                .Include("~/bower_components/angular-animate/angular-animate.js")
+                .Include("~/bower_components/angular-sanitize/angular-sanitize.js")
+                .Include("~/bower_components/angular-bootstrap/ui-bootstrap-tpls.js")
+                .Include("~/bower_components/angular-toastr/dist/angular-toastr.tpls.js")
                 );
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap")
@@ -34,11 +38,12 @@ namespace BudgetManager.Web
             bundles.Add(new StyleBundle("~/Content/css")
                 .Include("~/Content/bootstrap.css")
                 .Include("~/Content/site.css")
+                .Include("~/bower_components/angular-toastr/dist/angular-toastr.css")
                 );
 
             bundles.Add(new ScriptBundle("~/bundles/BudgetManager")
                 .Include("~/app/core/core.module.js")
-                .Include("~/app/core/coreToastr.service.js")
+                .Include("~/app/core/coreToast.service.js")
                 .Include("~/app/core/forms.service.js")
                 .Include("~/app/core/urlHelper.service.js")
                 .Include("~/app/core/dataServiceHelper.service.js")

@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BudgetManager.Domain;
 
 namespace BudgetManager.Business.DataAccess
@@ -14,17 +13,28 @@ namespace BudgetManager.Business.DataAccess
     {
         public BudgetManagerUnitOfWorkAdapter(IBudgetManagerDbContext context)
         {
-            this._Context = context;
+            _Context = context;
         }
 
-        private IBudgetManagerDbContext _Context { get; set; }
+        private IBudgetManagerDbContext _Context { get; }
+
+        #region "Dispose"
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        #endregion
 
         #region "SaveChanges"
+
         public int SaveChanges()
         {
             try
             {
-                var result = this._Context.SaveChanges();
+                var result = _Context.SaveChanges();
                 return result;
             }
             catch (DbEntityValidationException e)
@@ -32,8 +42,14 @@ namespace BudgetManager.Business.DataAccess
                 var errors = new List<string>();
                 foreach (var eve in e.EntityValidationErrors)
                 {
-                    errors.Add(String.Format(CultureInfo.InvariantCulture, "Entity of type '{0} in state '{1}' has the following validation errors:", eve.Entry.Entity.GetType().Name, eve.Entry.State));
-                    errors.AddRange(eve.ValidationErrors.Select(ve => String.Format(CultureInfo.InvariantCulture, "- Property: '{0}', Error: '{1}'", ve.PropertyName, ve.ErrorMessage)));
+                    errors.Add(string.Format(CultureInfo.InvariantCulture,
+                        "Entity of type '{0} in state '{1}' has the following validation errors:",
+                        eve.Entry.Entity.GetType().Name, eve.Entry.State));
+                    errors.AddRange(
+                        eve.ValidationErrors.Select(
+                            ve =>
+                                string.Format(CultureInfo.InvariantCulture, "- Property: '{0}', Error: '{1}'",
+                                    ve.PropertyName, ve.ErrorMessage)));
                 }
                 foreach (var error in errors)
                 {
@@ -42,13 +58,32 @@ namespace BudgetManager.Business.DataAccess
                 throw;
             }
         }
+
         #endregion
 
-        #region "Dispose"
-        public void Dispose()
+        #region "SetModified"
+        public void SetModified<TEntity>(TEntity entity)
+            where TEntity : class
         {
-            this.Dispose(true);
-            GC.SuppressFinalize(this);
+            var dbContext = _Context as DbContext;
+            if (dbContext != null)
+            {
+                dbContext.Entry(entity).State = EntityState.Modified;
+            }
+        }
+        #endregion
+
+        #region "IsEntityLoaded"
+        public bool IsEntityLoaded<TEntity>(TEntity entity)
+            where TEntity : class
+        {
+            var dbContext = _Context as DbContext;
+            if (dbContext == null)
+            {
+                return false;
+            }
+            var context = dbContext;
+            return context.Set<TEntity>().Local.Any(e => e == entity);
         }
         #endregion
 
@@ -60,7 +95,7 @@ namespace BudgetManager.Business.DataAccess
                 return;
             }
 
-            var context = this._Context as IDisposable;
+            var context = _Context as IDisposable;
             if (context != null)
             {
                 context.Dispose();

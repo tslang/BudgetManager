@@ -49,5 +49,6 @@
         }
     }
 
-    angular.module('budgetManager').config(RouteConfig);
+    angular.module('budgetManager')
+        .config(RouteConfig);
 }

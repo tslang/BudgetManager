@@ -49,10 +49,7 @@ namespace BudgetManager.Business.Services
         #region "GetAccountDetails"
         public Account GetAccountDetails(int id)
         {
-            var account = this.SingleOrDefault(entity => id == entity.Id, a => a.Name, a => a.Bank, a => a.Amount,
-                a => a.Transactions);
-
-            return account;
+            return this.SingleOrDefault(entity => id == entity.Id);
         }
         #endregion
     }

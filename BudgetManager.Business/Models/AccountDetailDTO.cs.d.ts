@@ -1,7 +1,9 @@
 ﻿declare module server {
-	interface AccountCreateCommandModel {
+	interface AccountDetailDTO {
+		id: number;
 		name: string;
 		bank: string;
 		amount: number;
+		transactions: any[];
 	}
 }

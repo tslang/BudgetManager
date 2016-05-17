@@ -9,9 +9,26 @@ using BudgetManager.Domain;
 
 namespace BudgetManager.Business.BusinessLogic
 {
+    public enum AccountResultCode
+    {
+        None = 0,
+        Okay = 1,
+        InvalidItem = -1,
+        InvalidPersonId = -2,
+        ItemNotFound = -3,
+        NullItemInput = -4,
+        Error = -5,
+        DbValidationError = -6,
+        AccountAlreadyExists = -7,
+        AlreadySubscribed = -8,
+        NotSubscribed = -9,
+        InvalidUpdate = -10,
+
+    }
+
     public interface IAccountBusinessLogic
     {
-        void Create(Account account);
+        void Create(AccountCreateCommandModel account);
         void Edit(Account account);
         void Remove(int accountId);
         bool DoesAccountAlreadyExist(Account account);
@@ -27,10 +44,24 @@ namespace BudgetManager.Business.BusinessLogic
         }
 
         #region "Create"
-        public void Create(Account account)
+        public void Create(AccountCreateCommandModel model)
         {
-            this.AccountDataService.Add(account);
+            var item = AccountBusinessLogic.MapForCreate(model);
+            this.AccountDataService.Add(item);
             this.AccountDataService.SaveChanges();
+        }
+        #endregion
+
+        #region"MapForCreate"
+        public static Account MapForCreate(AccountCreateCommandModel source)
+        {
+            var target = new Account()
+            {
+                Name = source.Name,
+                Bank = source.Bank,
+                Amount = source.Amount
+            };
+            return target;
         }
         #endregion
 
@@ -75,5 +106,21 @@ namespace BudgetManager.Business.BusinessLogic
         #endregion
 
         private IAccountDataService AccountDataService { get; set; }
+
+        public static IDictionary<AccountResultCode, string> ErrorMessages = new Dictionary<AccountResultCode, string>
+                                                                                 {
+                                                                                     { AccountResultCode.None, String.Empty },
+                                                                                     { AccountResultCode.Okay, String.Empty },
+                                                                                     { AccountResultCode.InvalidItem, "Invalid Item." },
+                                                                                     { AccountResultCode.InvalidPersonId, "Invalid Person Id." },
+                                                                                     { AccountResultCode.ItemNotFound, "The item was not found." },
+                                                                                     { AccountResultCode.Error, "Unexpected error." },
+                                                                                     { AccountResultCode.NullItemInput, "No requisition object was provided." },
+                                                                                     { AccountResultCode.AccountAlreadyExists, "That Account already exists." },
+                                                                                     { AccountResultCode.DbValidationError, "A database validation error occurred" },
+                                                                                     { AccountResultCode.AlreadySubscribed, "This person is already subscribed to the application" },
+                                                                                     { AccountResultCode.NotSubscribed, "This person is not subscribed to the application" },
+                                                                                     { AccountResultCode.InvalidUpdate, "This account does not have this update." },
+                                                                                 };
     }
 }
