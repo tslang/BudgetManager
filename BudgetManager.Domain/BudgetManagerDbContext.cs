@@ -1,4 +1,6 @@
-﻿namespace BudgetManager.Domain
+﻿using BudgetManager.Domain.ContextConfiguration;
+
+namespace BudgetManager.Domain
 {
     using System;
     using System.Data.Entity;
@@ -13,32 +15,33 @@
         IDbSet<Category> Categories { get; set; }
         IDbSet<SubCategory> SubCategories { get; set; }
     }
+
     public class BudgetManagerDbContext : DbContext, IBudgetManagerDbContext
     {
+        public static BudgetManagerDbContext CreateFromConnectionString(string connectionString)
+        {
+            return new BudgetManagerDbContext(connectionString);
+        }
+
         public BudgetManagerDbContext()
-            : base("name=BudgetManager")
+            : this("name=BudgetManager")
+        {
+
+        }
+
+        private BudgetManagerDbContext(string nameOrConnectionString)
+            : base(nameOrConnectionString)
         {
             this.Configuration.LazyLoadingEnabled = false;
         }
 
-        private const string AppSchemaName = "BudgetManager";
+        internal const string AppSchemaName = "BudgetManager";
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             Database.SetInitializer<BudgetManagerDbContext>(null);
 
-            #region "Account"
-
-            modelBuilder.Entity<Account>().ToTable("Account", AppSchemaName);
-            modelBuilder.Entity<Account>().HasKey(x => x.Id);
-            modelBuilder.Entity<Account>()
-                .Property(x => x.Id)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<Account>()
-                .HasMany(x => x.Transactions)
-                .WithRequired(x => x.Account).HasForeignKey(x => x.AccountId);
-
-            #endregion
+            modelBuilder.Configurations.Add(new AccountConfiguration());
 
             #region "Transaction"
             modelBuilder.Entity<Transaction>().ToTable("Transaction", AppSchemaName);

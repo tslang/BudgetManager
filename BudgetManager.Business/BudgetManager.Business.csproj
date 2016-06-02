@@ -48,7 +48,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BudgetManagerDbContext.cs" />
     <Compile Include="BusinessLogic\AccountBusinessLogic.cs" />
     <Compile Include="BusinessLogic\TransactionBusinessLogic.cs" />
     <Compile Include="DataAccess\BudgetManagerUnitOfWorkAdapter.cs" />
