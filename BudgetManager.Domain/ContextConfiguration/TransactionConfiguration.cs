@@ -1,23 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BudgetManager.Domain.ContextConfiguration
 {
-    internal class AccountConfiguration : EntityTypeConfiguration<Account>
+    public class TransactionConfiguration : EntityTypeConfiguration<Transaction>
     {
-        public AccountConfiguration()
+        public TransactionConfiguration()
         {
-            this.ToTable("Account", BudgetManagerDbContext.AppSchemaName);
+            this.ToTable("Transaction", BudgetManagerDbContext.AppSchemaName);
             this.HasKey(x => x.Id);
             this.Property(x => x.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            this.HasMany(x => x.Transactions)
-                .WithRequired(x => x.Account)
+            this.HasRequired(x => x.Account)
+                .WithMany()
                 .HasForeignKey(x => x.AccountId);
         }
     }

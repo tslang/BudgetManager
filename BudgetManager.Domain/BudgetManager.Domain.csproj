@@ -53,6 +53,9 @@
   <ItemGroup>
     <Compile Include="BudgetManagerDbContext.cs" />
     <Compile Include="ContextConfiguration\AccountConfiguration.cs" />
+    <Compile Include="ContextConfiguration\CategoryConfiguration.cs" />
+    <Compile Include="ContextConfiguration\SubCategoryConfiguration.cs" />
+    <Compile Include="ContextConfiguration\TransactionConfiguration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="BudgetManagerEntities.cs" />
     <Compile Include="Models\Category.cs" />
