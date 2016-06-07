@@ -21,6 +21,7 @@
                         <th>Name</th>
                         <th>Bank</th>
                         <th>Amount</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -28,6 +29,21 @@
                         <td>{{account.Name}}</td>
                         <td>{{account.Bank}}</td>
                         <td>{{account.Amount | currency}}</td>
+                        <td>
+                            <div class="col-md-1">
+                                <div class="btn-group" uib-dropdown dropdown-append-to-body>
+                                    <button id="actions.{{ ::account.id }}" type="button" class="btn btn-default btn-xs" uib-dropdown-toggle>Actions <span class="caret"></span></button>
+                                    <ul uib-dropdown-menu role="menu" aria-labelledby="actions.{{ ::account.id }}">
+                                        <li role="menuitem">
+                                            <a ui-sref="accountDetails({ id: account.id })"><i class="fa fa-fw fa-eye"></i>View</a>
+                                        </li>
+                                        <li role="menuitem">
+                                            <a ui-sref="accountEdit({ id: account.id })"><i class="fa fa-fw fa-edit"></i>Edit</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                     </tbody>
                 </table>

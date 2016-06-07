@@ -30,9 +30,15 @@
             });
             $stateProvider.state('accountCreate', {
                 url: '/Account/Create',
-                templateUrl: '/app/budgetManager/account/accountCreate.html',
-                controller: 'accountCreateController as vm',
+                templateUrl: '/app/budgetManager/account/accountCreateEdit.html',
+                controller: 'accountCreateEditController as vm',
                 data: { pageTitle: 'Add Account'}
+            });
+            $stateProvider.state('accountEdit', {
+                url: '/Account/Edit/:id',
+                templateUrl: '/app/budgetManager/account/accountCreateEdit.html',
+                controller: 'accountCreateEditController as vm',
+                data: { pageTitle: 'Edit Account' }
             });
             $stateProvider.state('budgetIndex', {
                 url: '/Budget',
