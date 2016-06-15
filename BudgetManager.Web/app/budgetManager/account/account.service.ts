@@ -3,7 +3,7 @@
 
     export interface IAccountService {
         getAll(): angular.IHttpPromise<any>;
-        getDetail(id: number): angular.IHttpPromise<any>;
+        getDetails(id: number): angular.IHttpPromise<any>;
         create(accountAddCommandModel: IAccountCreateEditCommandModel): angular.IHttpPromise<any>;
         edit(accountUpdateCommandModel: IAccountCreateEditCommandModel): angular.IHttpPromise<any>;
     }
@@ -19,8 +19,8 @@
             return this.dataServiceHelper.get(Account.AccountUrls.all);
         }
 
-        public getDetail(id: number): angular.IHttpPromise<any> {
-            return this.dataServiceHelper.get(Account.AccountUrls.details);
+        public getDetails(id: number): angular.IPromise<any> {
+            return this.dataServiceHelper.getWithKey(AccountUrls.details, id);
         }
 
         public create(accountCreateEditCommandModel: IAccountCreateEditCommandModel): angular.IHttpPromise<any> {

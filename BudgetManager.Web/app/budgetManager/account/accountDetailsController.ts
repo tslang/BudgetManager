@@ -3,25 +3,31 @@
 
     export interface IAccountDetailsController {
         title: string;
-        account: any;
-    }
-
-    export interface IAccountDetailsStateParams {
-        id: number;
+        account: Account.IAccountDetailsViewModel;
     }
 
     export class AccountDetailsController implements IAccountDetailsController {
         public title: string = 'Account Details';
-        public account: any;
+        public account: Account.IAccountDetailsViewModel;
 
         public static $inject: string[] = ['$stateParams', 'accountService'];
 
-        constructor($stateParams: IAccountDetailsStateParams, private accountService: Account.IAccountService) {
-            this.accountService.getDetail($stateParams.id).then((response: angular.IHttpPromiseCallbackArg<any>) => {
-                this.account = response.data;
-            });
+        constructor($stateParams: Core.IIdStateParams,
+            private accountService: Account.IAccountService) {
+
+            //this.accountService.getDetails($stateParams.id)
+            //    .then((response: angular.IHttpPromiseCallbackArg<IAccountDetailsViewModel>) => {
+            //    this.account = response.data;
+            //});
+            if ($stateParams.id) {
+                this.accountService.getDetails($stateParams.id)
+                    .then((response: angular.IHttpPromiseCallbackArg<IAccountDetailsViewModel>) => {
+                        this.account = response.data;
+                    });
+            }
         }
     }
 
-    angular.module('budgetManager').controller('accountDetailsController', AccountDetailsController);
+    angular.module('budgetManager')
+        .controller('accountDetailsController', AccountDetailsController);
 }

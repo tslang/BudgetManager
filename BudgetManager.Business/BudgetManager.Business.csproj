@@ -54,7 +54,7 @@
     <Compile Include="DataAccess\DataServiceBase.cs" />
     <Compile Include="DataAccess\DbSetRepository.cs" />
     <Compile Include="Models\AccountCreateCommandModel.cs" />
-    <Compile Include="Models\AccountDetailDTO.cs" />
+    <Compile Include="Models\AccountDetailsViewModel.cs" />
     <Compile Include="Models\AccountEditCommandModel.cs" />
     <Compile Include="Models\TransactionAddCommandModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,7 +77,7 @@
       <DependentUpon>AccountCreateCommandModel.cs</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Models\AccountDetailDTO.cs.d.ts">
-      <DependentUpon>AccountDetailDTO.cs</DependentUpon>
+      <DependentUpon>AccountDetailsViewModel.cs</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Models\AccountEditCommandModel.cs.d.ts">
       <DependentUpon>AccountEditCommandModel.cs</DependentUpon>

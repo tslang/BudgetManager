@@ -1,3 +1,301 @@
-﻿<div class="container">
-    <h3>{{vm.title}}</h3>
+﻿<div class="container detail-page">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-12">
+                    <a ui-sref="quoteSearch"><i class="fa fa-fw fa-arrow-circle-left"></i>Back to Quote Search</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <a ui-sref="accountIndex"><i class="fa fa-fw fa-arrow-circle-left"></i>Back to Accounts <span id="Account">{{vm.account.id}}</span></a>
+                </div>
+            </div>
+        </div>
+        <!--<div class="col-md-2">
+            <a class="btn btn-primary pull-right" ng-if="vm.canEditQuote" ui-sref="quoteEdit({id:vm.quote.id})"><i class="fa fa-fw fa-pencil-square-o"></i>Edit Quote Header</a>
+        </div>-->
+    </div>
+    <div class="row title-row">
+        <div class="col-md-12">
+            <div class="headline">
+                <h2>Account {{vm.account.id}} > {{vm.account.name}} ({{vm.account.amount}})</h2>
+            </div>
+            <h5>
+                <span class="created-by pull-left">Created by <span id="CreatedByContactName">{{vm.quote.createdByContactName}}</span> on <span id="CreatedDate">{{vm.quote.createdDate | date : "dd-MMM-yyyy"}}</span></span>
+            </h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <uib-tabset>
+                <uib-tab heading="Header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-info data-table">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Details</h3>
+                                </div>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <label>Salesperson</label>
+                                        <span id="SalesPerson">{{vm.quote.salesPersonPersonContactName}}</span>
+                                    </li>
+                                    <li>
+                                        <label>Quote Co-Owner</label>
+                                        <span id="CoOwner">{{vm.quote.quoteCoOwnerPersonContactName}}</span>
+                                    </li>
+                                    <li>
+                                        <label>Status</label>
+                                        <span id="Status">{{vm.quote.statusName}}</span>
+                                    </li>
+                                    <li>
+                                        <label>Go</label>
+                                        <span id="GoPercentage">{{vm.quote.goPercentage}}%</span>
+                                    </li>
+                                    <li>
+                                        <label>Win</label>
+                                        <span id="WinPercentage">{{vm.quote.winPercentage}}%</span>
+                                    </li>
+                                    <li>
+                                        <label>Net Price</label>
+                                        <span id="NetPrice">{{vm.quote.netPrice | currency: '':0}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel panel-info data-table">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Customer</h3>
+                                </div>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <label>Customer Family</label>
+                                        <span id="CustomerFamily">{{vm.quote.customerFamilyName}}</span>
+                                    </li>
+                                    <li>
+                                        <label>Customer Branch</label>
+                                        <span id="CustomerBranch">{{vm.quote.customerBranchName}}</span>
+                                    </li>
+                                    <li>
+                                        <label>Verified in Visual Compliance?</label>
+                                        <span id="IsVerifiedInVisualCompliance">{{vm.quote.isVerifiedInVisualCompliance | yesNo}}</span>
+                                    </li>
+                                    <li>
+                                        <label>Customer Contact</label>
+                                        <span id="CustomerContact">
+                                            {{vm.quote.customerContactViewModel.contactFullName}}
+                                            <a class="i-button" ng-show="vm.quote.customerContactViewModel" ng-click="vm.viewCustomerContactDetails()">
+                                                <i class="fa fa-fw fa-info-circle"></i>
+                                            </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <label>Customer Reference Number</label>
+                                        <span id="CustomerReferenceNumber">{{vm.quote.customerReferenceNumber}}</span>
+                                    </li>
+                                    <li>
+                                        <label>Rig Design</label>
+                                        <span id="RigDesignName">{{vm.quote.rigDesign}}</span>
+                                    </li>
+                                    <li>
+                                        <label>Ultimate Destination</label>
+                                        <span id="UltimateDestination">{{vm.quote.ultimateDestinationCountryName}}</span>
+                                    </li>
+                                    <li>
+                                        <label>Block</label>
+                                        <span id="Block">{{vm.quote.block}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="panel panel-info data-table">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Terms</h3>
+                                </div>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <label>Presentation Currency</label>
+                                        <span id="QuotePresentationCurrencyIsoCurrencyCode">{{vm.quote.quotePresentationCurrencyIsoCurrencyCode}}</span>
+                                    </li>
+                                    <li>
+                                        <label>Payment Term</label>
+                                        <span id="PaymentTerm">{{vm.quote.paymentTerm.name}}</span>
+                                    </li>              
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel panel-info data-table">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Text</h3>
+                                </div>
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <label>Special Instructions</label>
+                                        <span id="SpecialInstructions">{{vm.quote.specialInstructions}}</span>
+                                    </li>
+                                    <li>
+                                        <label>Notes</label>
+                                        <span id="Notes">{{vm.quote.notes}}</span>
+                                    </li>
+                                    <li>
+                                        <label>Cover Letter Text</label>
+                                        <span id="CoverLetterText">{{vm.quote.coverLetterText}}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="vm.showIsCustomerApprovedMessage">
+                        <div class="col-md-12">
+                            <uib-alert type="danger" close="vm.dismissIsCustomerApprovedMessage()">The customer associated to the quote must be Approved in order to release.</uib-alert>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="vm.showNoQuoteLineToReleaseMessage">
+                        <div class="col-md-12">
+                            <uib-alert type="danger" close="vm.dismissNoQuoteLineToReleaseMessage()">There are no quote lines that are "Ready for Release" or "Released".</uib-alert>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="vm.showCustomerInOrderToReleaseMessage">
+                        <div class="col-md-12">
+                            <uib-alert type="danger" close="vm.dismissShowCustomerInOrderToReleaseMessage()">There must be a customer associated to the quote in order to release.</uib-alert>
+                        </div>
+                    </div>
+
+                </uib-tab>
+                <uib-tab heading="Collaborations">
+
+    
+                </uib-tab>
+                <uib-tab heading="Released Quotes">
+  
+
+                </uib-tab>
+                <uib-tab heading="Details">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <uib-accordion close-others="false">
+                                <uib-accordion-group class="panel-blue-1" ng-repeat="group in vm.quote.quoteGroups | orderBy:'sequenceNumber'" is-open="true">
+                                    <uib-accordion-heading>
+                                        <div class="row accordion-header">
+                                            <div class="col-xs-6 col-md-7">{{::group.name}}</div>
+                                            <label class="col-xs-2 col-md-2 text-right">Net Price</label>
+                                            <span class="col-xs-2 col-md-2">{{::group.netPrice| currency: '':0}}</span>
+                                            <div class="btn-group col-xs-2 col-md-1 text-right pull-right" uib-dropdown dropdown-append-to-body ng-click="$event.stopPropagation();">
+                                                <button type="button" class="btn btn-default btn-xs" uib-dropdown-toggle ng-disabled="disabled">
+                                                    Actions
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                                    <li role="menuitem">
+                                                        <a ng-click="vm.editGroup(group)"><i class="fa fa-fw fa-pencil-square-o"></i>Edit Group Name</a>
+                                                    </li>
+                                                    <li role="menuitem">
+                                                        <a ng-click="vm.addSection(group.id)"><i class="fa fa-fw fa-plus"></i>Add Section</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </uib-accordion-heading>
+                                    <uib-accordion close-others="false">
+                                        <uib-accordion-group class="panel-blue-2" ng-repeat="section in group.quoteSections | orderBy:'sequenceNumber'" is-open="true">
+                                            <uib-accordion-heading>
+                                                <div class="row accordion-header">
+                                                    <div class="col-xs-6 col-md-7">{{::section.name}}</div>
+                                                    <label class="col-xs-2 col-md-2 text-right">Net Price</label>
+                                                    <span class="col-xs-2 col-md-2">{{::section.netPrice| currency: '':0}}</span>
+                                                    <div class="btn-group col-xs-2 col-md-1 text-right pull-right" uib-dropdown dropdown-append-to-body ng-click="$event.stopPropagation();">
+                                                        <button type="button" class="btn btn-default btn-xs" uib-dropdown-toggle ng-disabled="disabled">
+                                                            Actions
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                                            <li role="menuitem">
+                                                                <a ng-click="vm.editSection(section)"><i class="fa fa-fw fa-pencil-square-o"></i>Edit Section Name</a>
+                                                            </li>
+                                                            <li role="menuitem">
+                                                                <a ng-click="vm.addLineByModel(section.id)"><i class="fa fa-fw fa-plus"></i>Add Line By Model</a>
+                                                            </li>
+                                                            <li role="menuitem">
+                                                                <a ng-click="vm.addLineByItemNumber(section.id)"><i class="fa fa-fw fa-plus"></i>Add Line By Item</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </uib-accordion-heading>
+                                            <uib-accordion close-others="true">
+                                                <uib-accordion-group class="panel-blue-3" ng-repeat="line in section.quoteLines | orderBy:'sequenceNumber'" is-open="false">
+                                                    <uib-accordion-heading>
+                                                        <div class="row accordion-header">
+                                                            <div class="col-xs-6 col-md-7">{{::line.itemNumber}} - {{::line.commercialName}}</div>
+                                                            <label class="col-xs-2 text-right">Net Price</label>
+                                                            <span class="col-xs-2 col-md-1">{{::line.netPrice| currency: '':0}}</span>
+                                                            <div class="col-xs-2 text-right" ng-click="$event.stopPropagation();">
+                                                                <button class="btn btn-default btn-xs" ui-sref="quoteLineDetails({id: line.id})"><i class="fa fa-fw fa-eye"></i>View</button>
+                                                            </div>
+                                                        </div>
+                                                    </uib-accordion-heading>
+                                                    <div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="row">
+                                                                    <label class="col-xs-8 col-md-6 text-right">Status</label>
+                                                                    <span class="col-xs-4 col-md-6">{{::line.quoteLineStatusName}}</span>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <label class="col-xs-8 col-md-6 text-right">Delivery</label>
+                                                                    <span class="col-xs-4 col-md-6">{{::line.deliveryReviewStatusName}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="row">
+                                                                    <label class="col-xs-8 col-md-6 text-right">Base Price</label>
+                                                                    <span class="col-xs-4 col-md-6 ">{{ ::line.basePrice | currency: '':0 }}</span>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <label class="col-xs-8 col-md-6 text-right">Total Base Price Adj</label>
+                                                                    <div class="col-xs-4 col-md-6">{{ ::line.totalBasePriceAdjustmentsAmount | currency: '':0 }}</div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <label class="col-xs-8 col-md-6 text-right">Adjusted Base Price</label>
+                                                                    <div class="col-xs-4 col-md-6">{{ ::line.adjustedBasePrice | currency: '':0 }}</div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <label class="col-xs-8 col-md-6 text-right">Total Discounts</label>
+                                                                    <div class="col-xs-4 col-md-6">{{ ::line.totalDiscountsAmount | currency: '':0 }}</div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <label class="col-xs-8 col-md-6 text-right">Unit Price</label>
+                                                                    <div class="col-xs-4 col-md-6">{{ ::line.unitPrice | currency: '':0 }}</div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <label class="col-xs-8 col-md-6 text-right">Quantity</label>
+                                                                    <div class="col-xs-4 col-md-6">{{ ::line.quantity}}</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </uib-accordion-group>
+                                            </uib-accordion>
+                                        </uib-accordion-group>
+                                    </uib-accordion>
+                                </uib-accordion-group>
+                            </uib-accordion>
+                        </div>
+                    </div>
+                    <div class="row button-row">
+                        <div class="col-md-12">
+                            <button class="btn btn-default" ng-if="vm.quote.quoteWorkflow.canAddGroup" ng-click="vm.addGroup()"><i class="fa fa-fw fa-plus"></i>Add Group</button>
+                            <button class="btn btn-default" ng-if="vm.quote.quoteWorkflow.canEditCodes" ui-sref="editCodes({id:vm.quote.id})"><i class="fa fa-fw fa-pencil-square-o"></i>Edit Codes</button>
+                        </div>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
 </div>

@@ -18,7 +18,7 @@ namespace BudgetManager.Business.Services
         Account Remove(Account account);
         int SaveChanges();
         bool Exists(Expression<Func<Account, bool>> expression);
-        Account GetAccountDetails(int accountId);
+        Account GetDetails(int accountId);
     }
 
     public class AccountDataService : DataServiceBase<Account>, IAccountDataService
@@ -46,10 +46,10 @@ namespace BudgetManager.Business.Services
         }
         #endregion
 
-        #region "GetAccountDetails"
-        public Account GetAccountDetails(int id)
+        #region "GetDetails"
+        public Account GetDetails(int id)
         {
-            return this.SingleOrDefault(entity => id == entity.Id);
+            return _Context.Accounts.SingleOrDefault(entity => entity.Id == id);
         }
         #endregion
     }

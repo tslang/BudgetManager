@@ -23,12 +23,20 @@
         public isSaving: boolean = false;
         public editForm: IAccountCreateEditControllerForm;
 
-        public static $inject: string[] = ['$state', 'accountService', 'coreFormsService', 'coreToast'];
+        public static $inject: string[] = ['$state', '$stateParams', 'accountService', 'coreFormsService', 'coreToast'];
 
         constructor(private $state: angular.ui.IStateService,
+            $stateParams: Core.IIdStateParams,
             private accountService: IAccountService,
             private coreFormsService: Core.ICoreFormsService,
             private coreToast: Core.ICoreToast) {
+
+            if ($stateParams.id) {
+                this.accountService.getDetails($stateParams.id)
+                    .then((response: angular.IHttpPromiseCallbackArg<IAccountDetailsViewModel>) => {
+                        this.account = response.data;
+                    });
+            }
 
         }
 

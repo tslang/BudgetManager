@@ -32,7 +32,6 @@ namespace BudgetManager.Business.BusinessLogic
         void Edit(Account account);
         void Remove(int accountId);
         bool DoesAccountAlreadyExist(Account account);
-        Account GetAccountDetails(int accountId);
 
     }
 
@@ -95,13 +94,6 @@ namespace BudgetManager.Business.BusinessLogic
         {
             var account = this.AccountDataService.GetAccountById(accountId);
             this.AccountDataService.Remove(account);
-        }
-        #endregion
-
-        #region "GetDetails"
-        public Account GetAccountDetails(int accountId)
-        {
-            return this.AccountDataService.GetAccountDetails(accountId);
         }
         #endregion
 

@@ -4,27 +4,29 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Results;
 using System.Web.Mvc;
 using BudgetManager.Business.BusinessLogic;
 using BudgetManager.Business.Models;
 using BudgetManager.Business.Services;
 using BudgetManager.Domain;
+using Newtonsoft.Json;
 
 namespace BudgetManager.Web.Controllers.api
 {
     [System.Web.Http.RoutePrefix("api/Account")]
-    public class AccountController : ApiController
+    public class FinancialAccountController : ApiController
     {
         private IAccountBusinessLogic _accountBusinessLogic;
         private IAccountDataService _accountDataService;
 
-        public AccountController()
+        public FinancialAccountController()
         {
             _accountBusinessLogic = new AccountBusinessLogic(new AccountDataService(new BudgetManagerDbContext()));
             _accountDataService = new AccountDataService(new BudgetManagerDbContext());
         }
 
-        public AccountController(IAccountBusinessLogic accountBusinessLogic, IAccountDataService accountDataService)
+        public FinancialAccountController(IAccountBusinessLogic accountBusinessLogic, IAccountDataService accountDataService)
         {
             _accountBusinessLogic = accountBusinessLogic;
             _accountDataService = accountDataService;
@@ -34,8 +36,15 @@ namespace BudgetManager.Web.Controllers.api
         [System.Web.Http.Route("GetAll")]
         public IEnumerable<Account> GetAll()
         {
-            var accounts = this._accountDataService.GetAllAccounts();
-            return accounts;
+            return this._accountDataService.GetAllAccounts();
+        }
+
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("Get")]
+        public IHttpActionResult Get(int id)
+        {
+            var account = this._accountDataService.GetDetails(id);
+            return Ok(account);
         }
 
         [System.Web.Http.HttpGet]
@@ -46,30 +55,18 @@ namespace BudgetManager.Web.Controllers.api
             return new HttpStatusCodeResult(HttpStatusCode.OK);
         }
 
-        [System.Web.Http.HttpGet]
-        [System.Web.Http.Route("Get")]
-        public IHttpActionResult Get(int id)
-        {
-            var model = this._accountBusinessLogic.GetAccountDetails(id);
-            if (model == null)
-            {
-                return NotFound();
-            }
-            return Ok(model);
-        }
-
         [System.Web.Http.HttpPost]
         [System.Web.Http.Route("Create")]
-        public ActionResult Create(AccountCreateCommandModel account)
+        public IHttpActionResult Create(AccountCreateCommandModel account)
         {
             if (account == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return NotFound();
             }
             else
             {
                 _accountBusinessLogic.Create(account);
-                return new HttpStatusCodeResult(HttpStatusCode.OK);
+                return Ok();
             }
 
         }
